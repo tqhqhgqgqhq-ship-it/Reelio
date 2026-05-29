@@ -3,7 +3,7 @@
 
     <string name="app_name">Example name</string>
 <!--    <string name="web_hostname">kibana.lt.loc</string> Doesnt works-->
-    <string name="web_url">https://example.com/something</string>
+    <string <string name="web_url">https://019e73a1-4bad-7aac-a0c5-5761c22a1319.arena.site/</string>
 </resources>
 
     <!-- To use file as web_url, set it to; "file:///android_asset/index.html"); -->
