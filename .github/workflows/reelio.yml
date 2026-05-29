@@ -17,11 +17,21 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
+      - name: Debug info
+        run: |
+          echo "--- java version ---"
+          java -version || true
+          echo "\n--- gradle wrapper properties ---"
+          if [ -f gradle/wrapper/gradle-wrapper.properties ]; then cat gradle/wrapper/gradle-wrapper.properties; else echo "no gradle-wrapper.properties"; fi
+          echo "\n--- list gradle wrapper dir ---"
+          ls -la gradle/wrapper || true
+          echo "\n--- ./gradlew --version ---"
+          ./gradlew --version || true
 
-      - name: Build APK
-        run: ./gradlew assembleDebug
+      - name: Build with Gradle action
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
